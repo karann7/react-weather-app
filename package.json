@@ -1,23 +1,24 @@
 {
-  "name": "boilerplate",
+  "name": "weather-app",
   "version": "1.0.0",
-  "description": "Simple react app",
-  "main": "index.js",
+  "description": "react weather app",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Andrew Mead",
-  "license": "MIT",
+  "author": "Karan Singh",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "express": "^4.15.3",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router-dom": "^4.1.1"
   },
   "devDependencies": {
-    "babel-core": "^6.5.1",
-    "babel-loader": "^6.2.2",
-    "babel-preset-es2015": "^6.5.0",
-    "babel-preset-react": "^6.5.0",
-    "webpack": "^1.12.13"
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^2.6.0"
   }
 }
