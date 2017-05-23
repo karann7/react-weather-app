@@ -57,8 +57,8 @@
 
 	var Main = __webpack_require__(222);
 	var Weather = __webpack_require__(224);
-	var About = __webpack_require__(225);
-	var Examples = __webpack_require__(226);
+	var About = __webpack_require__(227);
+	var Examples = __webpack_require__(228);
 
 	ReactDOM.render(React.createElement(
 	  Router,
@@ -25461,7 +25461,8 @@
 	//link has to be pulled from react-router to be able to make links clickable
 
 	var _require = __webpack_require__(159),
-	    Link = _require.Link;
+	    Link = _require.Link,
+	    IndexLink = _require.IndexLink;
 
 	var Nav = React.createClass({
 	  displayName: 'Nav',
@@ -25476,18 +25477,18 @@
 	        'Nav Component'
 	      ),
 	      React.createElement(
-	        Link,
-	        { to: '/' },
+	        IndexLink,
+	        { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
 	        'Get Weather'
 	      ),
 	      React.createElement(
 	        Link,
-	        { to: '/about' },
+	        { to: '/about', activeClassName: 'active' },
 	        'About'
 	      ),
 	      React.createElement(
 	        Link,
-	        { to: '/examples' },
+	        { to: '/examples', activeClassName: 'active' },
 	        'Examples'
 	      )
 	    );
@@ -25503,15 +25504,22 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-
+	var Form = __webpack_require__(225);
+	var FormResults = __webpack_require__(226);
 	var Weather = React.createClass({
 	  displayName: 'Weather',
 
 	  render: function render() {
 	    return React.createElement(
-	      'h3',
+	      'div',
 	      null,
-	      'Weather Component'
+	      React.createElement(
+	        'h3',
+	        null,
+	        'Get Weather'
+	      ),
+	      React.createElement(Form, null),
+	      React.createElement(FormResults, null)
 	    );
 	  }
 	});
@@ -25520,6 +25528,51 @@
 
 /***/ }),
 /* 225 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+	var Form = React.createClass({
+	  displayName: "Form",
+
+	  render: function render() {
+	    return React.createElement(
+	      "form",
+	      null,
+	      React.createElement("input", { type: "text", ref: "location" }),
+	      React.createElement(
+	        "button",
+	        null,
+	        "Submit"
+	      )
+	    );
+	  }
+	});
+	module.exports = Form;
+
+/***/ }),
+/* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var FormResults = React.createClass({
+	  displayName: 'FormResults',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      'The results will go here!'
+	    );
+	  }
+	});
+	module.exports = FormResults;
+
+/***/ }),
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25541,7 +25594,7 @@
 	module.exports = About;
 
 /***/ }),
-/* 226 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

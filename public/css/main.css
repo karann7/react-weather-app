@@ -1,0 +1,7 @@
+body {
+  background-color: lightseagreen;
+}
+.active {
+  color: red;
+  font-size: 20px;
+}
