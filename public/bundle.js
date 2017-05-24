@@ -25512,26 +25512,42 @@
 
 	  getInitialState: function getInitialState() {
 	    return {
-	      location: 'Miami',
-	      temp: 200
+	      isLoading: false
 	    };
 	  },
 	  handleSearch: function handleSearch(location) {
 	    var that = this;
+	    this.setState({
+	      isLoading: true
+	    });
 	    openWeatherMap.getTemp(location).then(function (temp) {
 	      that.setState({
 	        location: location,
-	        temp: temp
+	        temp: temp,
+	        isLoading: false
 	      });
 	    }, function (err) {
 	      alert(err);
+	      that.setState({ isLoading: false });
 	    });
 	  },
 	  render: function render() {
 	    var _state = this.state,
 	        location = _state.location,
-	        temp = _state.temp;
+	        temp = _state.temp,
+	        isLoading = _state.isLoading;
 
+	    function renderMessage() {
+	      if (isLoading) {
+	        return React.createElement(
+	          'h3',
+	          null,
+	          'Fetching weather...'
+	        );
+	      } else if (temp && location) {
+	        return React.createElement(FormResults, { location: location, temp: temp });
+	      }
+	    }
 	    return React.createElement(
 	      'div',
 	      null,
@@ -25541,7 +25557,7 @@
 	        'Get Weather'
 	      ),
 	      React.createElement(Form, { onSearch: this.handleSearch }),
-	      React.createElement(FormResults, { location: location, temp: temp })
+	      renderMessage()
 	    );
 	  }
 	});
@@ -25670,12 +25686,12 @@
 	    var requestUrl = OPEN_WEATHER_MAP_URL + '&q=' + encodedLocation;
 	    return axios.get(requestUrl).then(function (res) {
 	      if (res.data.cod && res.data.message) {
-	        throw new Error(res.data.message);
+	        throw new Error('Unable to fetch weather');
 	      } else {
 	        return res.data.main.temp;
 	      }
 	    }, function (res) {
-	      throw new Error(res.data.message);
+	      throw new Error('Unable to fetch weather');
 	    });
 	  }
 	};
