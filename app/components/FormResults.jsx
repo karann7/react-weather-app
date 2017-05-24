@@ -1,9 +1,10 @@
 var React = require('react');
 var FormResults = React.createClass({
   render: function(){
+    var {temp, location} = this.props;
     return (
       <div>
-        The results will go here!
+        It is currently: {temp} in {location}
       </div>
     )
   }
