@@ -5,7 +5,7 @@ var React = require('react');
 var FormResults = ({temp, location})=>{
   return (
       <div>
-        It is currently: {temp} in {location}
+        <h3 className="text-center">It is currently: {temp} in {location}</h3>
       </div>
     )
 };

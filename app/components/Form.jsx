@@ -11,8 +11,8 @@ var Form = React.createClass({
   render: function(){
     return (
       <form onSubmit={this.onFormSubmit}>
-        <input type="text" ref="location"/>
-        <button className="secondary button">Submit</button>
+        <input type="text" ref="location" placeholder="Enter location here:" autoFocus/>
+        <button className="button warning expanded">Submit</button>
       </form>
     )
   }
