@@ -19,3 +19,7 @@ module.exports = {
     });
   }
 };
+
+
+
+//gonna re-write this using geolocation and darksky API instead this one sucks!
